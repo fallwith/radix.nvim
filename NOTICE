@@ -1,0 +1,15 @@
+radix.nvim
+
+This product includes design ideas adapted from tokyonight.nvim:
+  https://github.com/folke/tokyonight.nvim
+  Copyright folke
+  Licensed under the Apache License, Version 2.0.
+
+This product includes color values from Radix Colors:
+  https://github.com/radix-ui/colors
+  Copyright (c) 2021-2022 Modulz
+  Copyright (c) 2022-Present WorkOS
+  Licensed under the MIT License.
+
+All source files in radix.nvim are new or substantially modified for the Radix
+palette, direct-color constraint, module namespace, and plugin implementation.
