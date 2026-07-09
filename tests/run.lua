@@ -44,6 +44,18 @@ local function test_variant(variant)
 
   assert_direct_colors(colors, variant .. ".colors", {})
   assert_direct_colors(highlights, variant .. ".highlights", {})
+  if colors.bg ~= colors.palette.slate[1]
+    or colors.bg_popup ~= colors.palette.slate[2]
+    or colors.bg_highlight ~= colors.palette.slate[3]
+  then
+    fail(variant .. " UI surfaces are not using the neutral Slate scale")
+  end
+  if highlights.Function.fg ~= colors.palette.blue[11]
+    or highlights.String.fg ~= colors.palette.green[11]
+    or highlights.Keyword.fg ~= colors.palette.purple[11]
+  then
+    fail(variant .. " syntax colors were unexpectedly neutralized")
+  end
 
   vim.cmd.colorscheme("radix-" .. variant)
   if vim.g.colors_name ~= "radix-" .. variant then
@@ -65,7 +77,14 @@ local function test_variant(variant)
 
   package.loaded["lualine.themes.radix"] = nil
   local lualine = require("lualine.themes.radix")
-  if lualine.normal.a.bg ~= colors.blue then
+  if lualine.normal.a.bg ~= colors.blue
+    or lualine.normal.a.fg ~= colors.bg
+    or lualine.insert.a.bg ~= colors.green
+    or lualine.visual.a.bg ~= colors.purple
+    or lualine.replace.a.bg ~= colors.red
+    or lualine.command.a.bg ~= colors.yellow
+    or lualine.terminal.a.bg ~= colors.teal
+  then
     fail("lualine did not follow the active " .. variant .. " style")
   end
 end

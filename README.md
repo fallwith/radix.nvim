@@ -2,7 +2,7 @@
 
 A dark and light Neovim colorscheme with Tokyo Night's colorful, low-distraction approach and palettes made entirely from [Radix Colors](https://www.radix-ui.com/colors).
 
-Every shipped hex value is copied directly from an alpha-free light or dark scale in `@radix-ui/colors` 3.0.0. The theme does not blend, brighten, interpolate, or invent colors. Blue steps 1–4 provide the Tokyo Night-like surfaces; Slate provides neutral text; Radix's step-11 accent colors provide syntax colors.
+Every shipped hex value is copied directly from an alpha-free light or dark scale in `@radix-ui/colors` 3.0.0. The theme does not blend, brighten, interpolate, or invent colors. Slate provides restrained editor chrome, Blue marks active UI, and Radix's step-11 accent colors provide syntax colors.
 
 ## Features
 
@@ -79,18 +79,25 @@ require("lualine").setup({ options = { theme = "radix" } })
 ```
 
 The `radix` lualine theme follows the currently loaded variant. Explicit `radix-dark` and `radix-light` lualine themes are also available.
+Its active mode segment uses a solid mode color: blue for normal, green for insert, purple for visual, red for replace, amber for command, and teal for terminal.
 
 ## Radix scale choices
 
 | Role | Radix token in each variant |
 | --- | --- |
-| Main background | `blue1` |
-| Subtle/popup background | `blue2` |
-| Highlight/selection surfaces | `blue3`–`blue4` |
+| Main background | `slate1` |
+| Subtle/popup background | `slate2` |
+| Hovered/cursor-line surfaces | `slate3` |
+| Active selection | `blue3` |
 | Main text | `slate12` |
 | Muted text/comments | `slate8`–`slate11` |
 | Syntax accents | Step 11 of Blue, Cyan, Teal, Green, Amber, Orange, Red, Pink, Purple, and Violet |
 | Diff/diagnostic surfaces | Steps 2–3 of the corresponding semantic scale |
+
+The UI is intentionally neutral-first: Slate is used for surfaces, borders,
+completion kinds, and general chrome; Blue is the sole interactive accent.
+Other hues are reserved for syntax or meaningful states such as diagnostics,
+Git changes, tests, searches, and jump targets.
 
 ## Development
 

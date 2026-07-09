@@ -21,18 +21,18 @@ function M.setup(options)
 
     -- Surfaces and text use Radix's intended 1-12 scale progression.
     black = p.slate[1],
-    bg = p.blue[1],
+    bg = p.slate[1],
     bg_dark = p.slate[2],
-    bg_highlight = p.blue[3],
-    bg_popup = p.blue[2],
+    bg_highlight = p.slate[3],
+    bg_popup = p.slate[2],
     bg_sidebar = sidebar_style == "transparent" and "NONE"
-      or sidebar_style == "normal" and p.blue[1]
-      or p.blue[2],
+      or sidebar_style == "normal" and p.slate[1]
+      or p.slate[2],
     bg_float = float_style == "transparent" and "NONE"
-      or float_style == "normal" and p.blue[1]
-      or p.blue[2],
-    bg_statusline = p.blue[2],
-    bg_visual = p.blue[4],
+      or float_style == "normal" and p.slate[1]
+      or p.slate[2],
+    bg_statusline = p.slate[2],
+    bg_visual = p.blue[3],
     bg_search = p.amber[9],
     fg_search = is_dark and p.amber[1] or p.amber[12],
     fg = p.slate[12],
