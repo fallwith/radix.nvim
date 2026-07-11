@@ -44,9 +44,9 @@ local function test_variant(variant)
 
   assert_direct_colors(colors, variant .. ".colors", {})
   assert_direct_colors(highlights, variant .. ".highlights", {})
-  if colors.bg ~= colors.palette.slate[1]
+  if colors.bg ~= colors.palette.slate[3]
     or colors.bg_popup ~= colors.palette.slate[2]
-    or colors.bg_highlight ~= colors.palette.slate[3]
+    or colors.bg_highlight ~= colors.palette.slate[4]
   then
     fail(variant .. " UI surfaces are not using the neutral Slate scale")
   end

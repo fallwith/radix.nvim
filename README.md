@@ -85,9 +85,9 @@ Its active mode segment uses a solid mode color: blue for normal, green for inse
 
 | Role | Radix token in each variant |
 | --- | --- |
-| Main background | `slate1` |
+| Main background | `slate3` |
 | Subtle/popup background | `slate2` |
-| Hovered/cursor-line surfaces | `slate3` |
+| Hovered/cursor-line surfaces | `slate4` |
 | Active selection | `blue3` |
 | Main text | `slate12` |
 | Muted text/comments | `slate8`–`slate11` |
