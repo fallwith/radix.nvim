@@ -45,10 +45,22 @@ local function test_variant(variant)
   assert_direct_colors(colors, variant .. ".colors", {})
   assert_direct_colors(highlights, variant .. ".highlights", {})
   if colors.bg ~= colors.palette.slate[3]
+    or colors.bg_dark ~= colors.palette.slate[2]
     or colors.bg_popup ~= colors.palette.slate[2]
+    or colors.bg_sidebar ~= colors.palette.slate[2]
+    or colors.bg_float ~= colors.palette.slate[2]
+    or colors.bg_statusline ~= colors.palette.slate[2]
     or colors.bg_highlight ~= colors.palette.slate[4]
   then
     fail(variant .. " UI surfaces are not using the neutral Slate scale")
+  end
+  if highlights.LspReferenceText.bg ~= colors.bg_highlight
+    or highlights.LspReferenceRead.bg ~= colors.bg_highlight
+    or highlights.CursorLine.bg ~= colors.bg_dark
+    or highlights.IblIndent.fg ~= colors.palette.slate[5]
+    or highlights.ScrollbarHandle.bg ~= colors.palette.slate[6]
+  then
+    fail(variant .. " direct Slate highlights do not contrast with the main background")
   end
   if highlights.Function.fg ~= colors.palette.blue[11]
     or highlights.String.fg ~= colors.palette.green[11]

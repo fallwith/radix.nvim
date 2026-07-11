@@ -22,7 +22,7 @@ function M.get(c, opts)
     lCursor = "Cursor",
     CursorIM = "Cursor",
     CursorColumn = { bg = c.bg_highlight },
-    CursorLine = { bg = c.bg_highlight },
+    CursorLine = { bg = c.bg_dark },
     Directory = { fg = c.blue },
     EndOfBuffer = { fg = background },
     ErrorMsg = { fg = c.error },
@@ -130,8 +130,8 @@ function M.get(c, opts)
     Todo = { fg = c.palette.blue[1], bg = c.todo, bold = true },
 
     -- Native LSP and diagnostics
-    LspReferenceText = { bg = c.palette.slate[3] },
-    LspReferenceRead = { bg = c.palette.slate[3] },
+    LspReferenceText = { bg = c.bg_highlight },
+    LspReferenceRead = { bg = c.bg_highlight },
     LspReferenceWrite = { bg = c.palette.blue[3] },
     LspSignatureActiveParameter = { bg = c.bg_visual, bold = true },
     LspCodeLens = { fg = c.comment },
