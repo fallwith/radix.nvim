@@ -59,6 +59,11 @@ local function test_variant(variant)
     or highlights.CursorLine.bg ~= colors.bg_dark
     or highlights.IblIndent.fg ~= colors.palette.slate[5]
     or highlights.ScrollbarHandle.bg ~= colors.palette.slate[6]
+    or highlights.SnacksPicker.bg ~= colors.bg_highlight
+    or highlights.SnacksPickerInput.bg ~= colors.bg_highlight
+    or highlights.SnacksPickerBorder.bg ~= colors.bg_highlight
+    or highlights.SnacksTitle.bg ~= colors.bg_highlight
+    or highlights.SnacksPickerTitle ~= "SnacksTitle"
   then
     fail(variant .. " direct Slate highlights do not contrast with the main background")
   end
