@@ -104,6 +104,24 @@ end
 test_variant("dark")
 test_variant("light")
 
+vim.g.colors_name = nil
+vim.o.background = "dark"
+require("radix").setup({})
+vim.cmd.colorscheme("radix")
+
+if vim.g.colors_name ~= "radix" or vim.g.radix_style ~= "dark" then
+  fail("automatic style did not use the initial background")
+end
+
+vim.o.background = "light"
+local automatic_normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+if vim.g.colors_name ~= "radix"
+  or vim.g.radix_style ~= "light"
+  or automatic_normal.bg ~= tonumber(palettes.light.slate[3]:sub(2), 16)
+then
+  fail("automatic style did not follow a background change")
+end
+
 local callback_ran = false
 require("radix").setup({
   style = "light",

@@ -8,6 +8,8 @@ function M.colors(options)
   local config = require("radix.config").extend(options)
   if (not options or options.style == nil) and vim.g.radix_style then
     config.style = vim.g.radix_style
+  elseif config.style == "auto" then
+    config.style = vim.o.background
   end
   local colors = require("radix.colors").setup(config)
   config.on_colors(colors)
@@ -16,6 +18,10 @@ end
 
 function M.load(options)
   local config = require("radix.config").extend(options)
+  local auto = config.style == "auto"
+  if auto then
+    config.style = vim.o.background
+  end
   local colors = require("radix.colors").setup(config)
   config.on_colors(colors)
 
@@ -30,7 +36,9 @@ function M.load(options)
   end
 
   vim.o.termguicolors = true
-  vim.o.background = colors.style
+  if not auto then
+    vim.o.background = colors.style
+  end
   vim.g.colors_name = config.name or "radix"
   vim.g.radix_style = colors.style
 

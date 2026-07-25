@@ -10,6 +10,7 @@ Every shipped hex value is copied directly from an alpha-free light or dark scal
 - Native diagnostic, diff, search, terminal, and popup colors
 - Highlight support for common completion, picker, Git, explorer, UI, DAP, test, motion, and Markdown plugins
 - A matching lualine theme
+- Automatic light and dark switching with Neovim's `background` option
 - Explicit `radix-dark` and `radix-light` variants
 - Configurable main, sidebar, and floating-window backgrounds plus Tokyo Night-style callbacks
 
@@ -37,7 +38,9 @@ colorscheme radix-dark
 colorscheme radix-light
 ```
 
-`colorscheme radix` loads the `style` selected in `setup()` and defaults to dark.
+`colorscheme radix` follows Neovim's `background` option by default. Neovim reloads the
+colorscheme automatically when terminal background detection changes that option. Use
+`radix-dark`, `radix-light`, or an explicit `style` to pin a variant.
 
 ## Configuration
 
@@ -45,7 +48,7 @@ Call `setup()` before loading the colorscheme:
 
 ```lua
 require("radix").setup({
-  style = "dark", -- "dark" or "light"
+  style = "auto", -- "auto", "dark", or "light"
   transparent = false,
   terminal_colors = true,
   dim_inactive = false,
